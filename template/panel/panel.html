@@ -1,0 +1,240 @@
+{% load static %}
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>پنل مدیریت فایل</title>
+
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/bootstrap.rtl.min.css' %}" rel="stylesheet">
+<style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+  
+  /* Button used to open the contact form - fixed at the bottom of the page */
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  </style>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/dashboard.rtl.css'%}" rel="stylesheet">
+    
+  </head>
+  <body>
+    
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">مشاور املاک آنده</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="عرض/إخفاء لوحة التنقل">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="جسجتو" aria-label="جستجو">
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="/logout">خروج</a>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">
+              <span data-feather="home"></span>
+                صفحه اول
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/zamins">
+              <span data-feather="file"></span>
+              زمین
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/builds">
+              <span data-feather="shopping-cart"></span>
+              ساختمان
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="users"></span>
+              رهن / اجاره
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="file-text"></span>
+              کشاورزی / باغ
+            </a>
+          </li>
+          
+          
+        </ul>
+
+        {%block menu%} {%endblock%}
+        {% if user.is_authenticated %}
+        
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span >  افزدون اطلاعات</span>
+          <a class="link-secondary" href="#" aria-label="">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/add-zamin">
+              <span data-feather="file-text"></span>
+              زمین
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-build">
+              <span data-feather="file-text"></span>
+              ساختمان
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-lease">
+              <span data-feather="file-text"></span>
+              رهن اجاره
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-garden">
+              <span data-feather="file-text"></span>
+              کشاورزی / باغ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add-request">
+              <span data-feather="bar-chart-2"></span>
+              خواهان
+            </a>
+          </li>
+        </ul>
+        {%else%}
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span> افزدون اطلاعات</span>
+          
+          <a class="link-secondary" href="#" aria-label="">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/login/?next=/add-zamin/">
+              <span data-feather="file-text"></span>
+              ورود به سایت
+            </a>
+          </li>
+
+        {%endif%}
+        
+      </div>
+
+    </nav>
+   
+    {% block main %} {% endblock %}
+  </div>
+</div>
+
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" integrity="sha384-EbSscX4STvYAC/DxHse8z5gEDaNiKAIGW+EpfzYTfQrgIlHywXXrM9SUIZ0BlyfF" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha384-i+dHPTzZw7YVZOx9lbH5l6lP74sLRtMtwN2XjVqjf3uAGAREAF4LMIUDTWEVs4LI" crossorigin="anonymous"></script>
+      <script src="{% static 'js/dashboard.js'%}"></script>
+  </body>
+</html>

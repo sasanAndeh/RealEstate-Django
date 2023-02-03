@@ -1,0 +1,82 @@
+{% load static%}
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" مشاور املاک آنده در مهاباد">
+    <meta name="author" content="sasan andeh">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>مشاور املاک آنده</title>
+
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/bootstrap.rtl.min.css'%}" rel="stylesheet">
+
+
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">مشاور املاک آنده</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="/admin">پنل مدیریت</a>
+        {% if user.is_authenticated %}
+          <a class="nav-link" href="/panel">پنل کاربری</a>
+        {%else%}
+          <a class="nav-link" href="/admin/login/?next=/add-zamin">ورود</a>
+        {%endif%}
+        <a class="nav-link" href="/leases">رهن و اجاره</a>
+        <a class="nav-link" href="/panel">خرید</a>
+        <a class="nav-link active" aria-current="page" href="#">خانه</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1>مشاور املاک آنده</h1>
+    <p class="lead">
+      <h4>
+        خرید و فروش  املاک تجاری، مسکونی، کشاورزی/ رهن و اجاره
+      </h4>
+      <br>
+      آدرس مهاباد، کوی بهداری خیابان 16 متری , املاک آنده
+      <br>
+      <a href="tel:+989204474316" class="card-link">  09204474316 </a> : علیرضا آنده 
+      
+      <br>
+      <a href="tel:+989143424316" class="card-link">09143424316  </a> : قادر آنده 
+      
+     
+
+    </p>
+    <p class="lead">
+      <a href="https://goo.gl/maps/uKrxsqR7dqk4HibL8"  target="_blank	" class="btn btn-lg btn-secondary fw-bold border-white bg-white">پیدا کردن ما در نقشه</a>
+    </p>
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <div class="row">
+      <div class="col-12 col-md">
+        <small class="d-block mb-3 text-muted">© 2019–2022</small>
+      </div>
+      
+      
+      
+    
+    </div>
+  </footer>
+</div>
+
+
+    
+  </body>
+</html>

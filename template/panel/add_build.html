@@ -1,0 +1,166 @@
+{% extends 'panel/panel.html' %}
+{%block main %}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">آخرین موارد اضافه شده </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">تست 1</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">تست 2</button>
+          </div>
+          <button type="date" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            
+            <span data-feather="calendar"></span>
+             تست 3
+          </button>
+          
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-md-8 col-lg-9">
+            <h4 class="mb-3">اضافه کردن ساختمان</h4>
+            <form class="needs-validation" novalidate="">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">شماره قطعه</label>
+                  <input type="text" class="form-control" id="firstName" name="number" placeholder="" value="" required="">
+                  <div class="invalid-feedback">
+                    يرجى إدخال اسم أول صحيح.
+                  </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">متراژ زمین</label>
+                  <input type="text" class="form-control" name="metr" id="lastName" placeholder="" value="" required="">
+                  <div class="invalid-feedback">
+                    يرجى إدخال اسم عائلة صحيح.
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="lastName" class="form-label">دهنه</label>
+                    <input type="text" class="form-control" name="area" id="lastName" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                      يرجى إدخال اسم عائلة صحيح.
+                     
+                    </div>
+                  </div>
+    
+                  <div class="col-sm-6">
+                    <label for="country" class="form-label">منطقه</label>
+                    <select class="form-select" id="country" name="region" required="">
+                        
+                        {% for key , value in regs %}
+                            <option value="{{key}}">{{value}}</option> 
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                      يرجى اختيار بلد صحيح.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="country" class="form-label">موقعیت</label>
+                    <select class="form-select" id="country" name="region" required="">
+                        
+                        {% for key , value in sk %}
+                            <option value="{{key}}">{{value}}</option> 
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                      يرجى اختيار بلد صحيح.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="country" class="form-label">موقعیت</label>
+                    <select class="form-select" id="country" name="region" required="">
+                        
+                        {% for key , value in sg %}
+                            <option value="{{key}}">{{value}}</option> 
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                      يرجى اختيار بلد صحيح.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="country" class="form-label">فاز</label>
+                    <select class="form-select" id="country" name="region" required="">
+                        
+                        {% for count in range %}
+                            <option value="{{count}}">{{count}}</option> 
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                      يرجى اختيار بلد صحيح.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="country" class="form-label">نبش</label>
+                    <select class="form-select" id="country" name="region" required="">
+                        
+                        {% for count in Nrange %}
+                            <option value="{{count}}">{{count}}</option> 
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                      يرجى اختيار بلد صحيح.
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">شهر</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                      يرجى إدخال اسم عائلة صحيح.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">قیمت</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                      يرجى إدخال اسم عائلة صحيح.
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-text">توضیحات </span>
+                    <textarea class="form-control " aria-label="With textarea"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <label for="country" class="form-label">مشتری</label>
+                    <select class="form-select" id="country" name="region" required="">
+                        
+                        {% for client in clients %}
+                            <option value="{{client}}">{{client}}</option> 
+                        {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">
+                      يرجى اختيار بلد صحيح.
+                    </div>
+                  </div>
+    
+           
+           
+              
+    
+              <button class="w-100 btn btn-primary btn-lg" type="submit">ثبت اطلاعات</button>
+              <hr class="my-4">
+            </form>
+          </div>
+
+      </div>
+      
+
+    
+
+    
+    </main>
+{% endblock %}

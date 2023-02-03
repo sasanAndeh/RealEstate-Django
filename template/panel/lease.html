@@ -1,0 +1,55 @@
+{% extends 'panel/panel.html' %}
+{%block main %}
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">آخرین موارد اضافه شده </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">تست 1</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">تست 2</button>
+          </div>
+          <button type="date" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            
+            <span data-feather="calendar"></span>
+             تست 3
+          </button>
+          
+        </div>
+      </div>
+      <div class="row ">
+        
+        {% for  lease in leases %}
+          <div class="card col-md-5 col-s-11 col-lg-5 ms-2">
+              <div class="card-body">
+
+                <h5 class="card-title">شماره قطعه ساختمان : {{build.number}}
+                  <br>
+                  منطقه : {{build.region}}
+                </h5>
+                <p class="card-text"> توضیحات : {{build.descripton}}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">متراژ : {{build.metr}}</li>
+                <li class="list-group-item"> ملک : {{build.hm}}</li>
+                <li class="list-group-item">تعداد طبقات : {{build.floor}}</li>
+                <li class="list-group-item">تعداد اتاق : {{build.rooms}}</li>
+                <li class="list-group-item">اجاره بها : {{build.leas}}</li>
+                <li class="list-group-item"> رهن: {{build.mortgae}}</li>
+              </ul>
+              <div class="card-body">
+                <a href="tel:+989143424316" class="card-link">تماس با ما</a>
+                <a href="tel:+989204474316" class="card-link">شماره تماس دوم</a>
+                <a class="card-link" target="_blank" href="https://wa.me/989149461350?text={{build.region}} {{build.number}}">ارسال پیام در واتساپ</a>
+
+              </div>
+          </div>
+          {%endfor%}
+
+      </div>
+      
+
+    
+
+    
+    </main>
+{% endblock %}
