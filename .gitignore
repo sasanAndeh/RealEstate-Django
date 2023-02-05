@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 
 # Django #
+
 *.log
 *.pot
 *.pyc
@@ -11,3 +12,6 @@ __pycache__
 media
 local_settings.py
 .env
+
+
+*.sqlite3
